@@ -21,7 +21,7 @@ A migration tool to convert Dialogflow ES agents to Dialogflow CX format with pr
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/dialogflow-es-to-cx-converter.git
+   git clone https://github.com/fatonyahmadfauzi/dialogflow-es-to-cx-converter.git
    cd dialogflow-es-to-cx-converter
    ```
 2. Create and activate virtual environment:
