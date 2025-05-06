@@ -36,8 +36,9 @@ A migration tool to convert Dialogflow ES agents to Dialogflow CX format with pr
 
 ## Configuration
 
-1. Create `config.py` file with your settings:
+1. You can use either `config.py` or `config.json`:
    ```python
+   # config.py example
    PROJECT_ID = "your-project-id"
    LOCATION = "your-region"  # e.g., "asia-southeast1"
    AGENT_ID = "your-agent-id"
@@ -45,7 +46,23 @@ A migration tool to convert Dialogflow ES agents to Dialogflow CX format with pr
    ZIP_PATH = "path/to/your-es-agent.zip"
    EXTRACT_PATH = "extracted"
    ```
+   ```json
+   // config.json example
+   {
+     "project_id": "your-project-id",
+     "location": "your-region",
+     "agent_id": "your-agent-id",
+     "service_account_path": "service-account.json"
+   }
+   ```
 2. Place your Dialogflow ES export ZIP file in the specified location
+
+## Features
+
+- 🛠️ Manual entity patching (`patch_entities.py`)
+- 🔍 Conversion verification (`verify_conversion.py`)
+- 🔄 Name correction mapping (`fix_names_config.py`)
+- 🚀 Direct deployment to CX (`deploy_cx.py`)
 
 ## Usage
 
@@ -54,6 +71,23 @@ Run the migration script:
 ```bash
 python main.py
 ```
+
+1. Convert ES to CX format:
+   ```bash
+   python converter.py
+   ```
+2. (Optional) Patch entities if needed:
+   ```bash
+   python patch_entities.py
+   ```
+3. Verify conversion:
+   ```bash
+   python verify_conversion.py
+   ```
+4. Deploy to Dialogflow CX:
+   ```bash
+   python deploy_cx.py
+   ```
 
 ## Migration Process
 
@@ -76,6 +110,12 @@ python main.py
 
 - Check training phrases for special characters
 - Verify no duplicate intent names exist
+
+**Deployment fails:**
+
+- Verify service account has proper roles
+- Check entity names match exactly
+- Run `verify_conversion.py` before deploying
 
 ## License
 

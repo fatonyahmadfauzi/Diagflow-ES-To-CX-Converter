@@ -41,3 +41,9 @@ config.py
 credentials.json
 service-account.json
 *.zip
+
+# Output conversion
+output_cx/
+
+# Config files
+config.json
